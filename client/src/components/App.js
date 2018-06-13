@@ -16,26 +16,25 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.props.history);
     return (
       <div>
         <ConnectedRouter history={this.props.history}>
-          <BrowserRouter>
-            <div>
-              <Header logout={this.props.logout} />
-              <div className="container">
-                <Switch>
-                  <Route exact path="/" component={Landing} />
-                  <Route exact path="/surveys" component={Dashboard} />
-                  <Route exact path="/surveys/new" component={SurveyNew} />
-                  <Route
-                    render={() => (
-                      <div>The page you're looking for doesn't exist.</div>
-                    )}
-                  />
-                </Switch>
-              </div>
+          <div>
+            <Header logout={this.props.logout} />
+            <div className="container">
+              <Switch>
+                <Route exact path="/" component={Landing} />
+                <Route exact path="/surveys" component={Dashboard} />
+                <Route exact path="/surveys/new" component={SurveyNew} />
+                <Route
+                  render={() => (
+                    <div>The page you're looking for doesn't exist.</div>
+                  )}
+                />
+              </Switch>
             </div>
-          </BrowserRouter>
+          </div>
         </ConnectedRouter>
       </div>
     );
