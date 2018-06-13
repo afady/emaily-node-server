@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { ConnectedRouter } from "connected-react-router";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 
 import Header from "./Header";
+import Landing from "./Landing";
 
 const Dashboard = () => <h2>Dashboard</h2>;
 const SurveyNew = () => <h2>SurveyNew</h2>;
-const Landing = () => <h2>Landing</h2>;
 
 class App extends Component {
   componentDidMount() {
@@ -17,16 +18,25 @@ class App extends Component {
   render() {
     return (
       <div>
-        <BrowserRouter>
-          <div>
-            <Header logout={this.props.logout} />
-            <div className="container">
-              <Route exact path="/" component={Landing} />
-              <Route exact path="/surveys" component={Dashboard} />
-              <Route exact path="/surveys/new" component={SurveyNew} />
+        <ConnectedRouter history={this.props.history}>
+          <BrowserRouter>
+            <div>
+              <Header logout={this.props.logout} />
+              <div className="container">
+                <Switch>
+                  <Route exact path="/" component={Landing} />
+                  <Route exact path="/surveys" component={Dashboard} />
+                  <Route exact path="/surveys/new" component={SurveyNew} />
+                  <Route
+                    render={() => (
+                      <div>The page you're looking for doesn't exist.</div>
+                    )}
+                  />
+                </Switch>
+              </div>
             </div>
-          </div>
-        </BrowserRouter>
+          </BrowserRouter>
+        </ConnectedRouter>
       </div>
     );
   }

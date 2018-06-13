@@ -1,4 +1,5 @@
 import axios from "axios";
+import { push } from "connected-react-router";
 import { FETCH_USER, LOGOUT } from "./types";
 
 export const fetchUser = () => async dispatch => {
@@ -11,8 +12,10 @@ export const fetchUser = () => async dispatch => {
 
 export const logout = () => async dispatch => {
   const res = await axios.get("/api/logout");
-  dispatch({
+  await dispatch({
     type: LOGOUT,
     payload: res.data
   });
+
+  dispatch(push("/"));
 };
