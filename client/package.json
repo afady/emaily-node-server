@@ -10,10 +10,9 @@
       "target": "http://localhost:5000"
     }
   },
-  "devDependencies": {
-    "react-scripts": "1.1.4"
-  },
+  "devDependencies": {},
   "dependencies": {
+    "react-scripts": "1.1.4",
     "axios": "^0.18.0",
     "connected-react-router": "^4.3.0",
     "history": "^4.7.2",
