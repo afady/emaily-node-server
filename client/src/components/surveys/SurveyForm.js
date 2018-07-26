@@ -47,9 +47,11 @@ class SurveyForm extends Component {
 function validate(values) {
   const errors = {};
 
-  if (values.title.trim() === '') {
-    errors.title = 'You must provide a title';
-  }
+  FIELDS.forEach(({ name }) => {
+    if (!values[name]) {
+      errors[name] = 'Required';
+    }
+  });
 
   return errors;
 }
