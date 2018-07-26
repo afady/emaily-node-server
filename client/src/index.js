@@ -1,15 +1,17 @@
-import "materialize-css/dist/css/materialize.min.css";
-import React from "react";
-import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import { createBrowserHistory } from "history";
-import { createStore, compose, applyMiddleware } from "redux";
-import { connectRouter, routerMiddleware } from "connected-react-router";
+import 'materialize-css/dist/css/materialize.min.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createBrowserHistory } from 'history';
+import { createStore, compose, applyMiddleware } from 'redux';
+import { connectRouter, routerMiddleware } from 'connected-react-router';
 
-import reduxThunk from "redux-thunk";
+import reduxThunk from 'redux-thunk';
 
-import App from "./components/App";
-import reducers from "./reducers";
+import App from './components/App';
+import reducers from './reducers';
+import axios from 'axios';
+window.axios = axios;
 
 const history = createBrowserHistory();
 
@@ -23,5 +25,5 @@ ReactDOM.render(
   <Provider store={store}>
     <App history={history} />
   </Provider>,
-  document.querySelector("#root")
+  document.querySelector('#root')
 );
