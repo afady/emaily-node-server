@@ -24,7 +24,7 @@ module.exports = app => {
         const match = p.test(new URL(url).pathname);
 
         if (match) {
-          return { email, ...match };
+          return { email: email, ...match };
         }
       })
       .compact()
