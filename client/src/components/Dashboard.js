@@ -5,12 +5,14 @@ import SurveyList from './surveys/SurveyList';
 const Dashboard = () => {
   return (
     <div>
+      <Link
+        to="/surveys/new"
+        class="waves-effect waves-light btn-large"
+        style={{ margin: '10px 0' }}
+      >
+        <i class="material-icons left">add</i>Create New Survey
+      </Link>
       <SurveyList />
-      <div className="fixed-action-btn">
-        <Link to="/surveys/new" className="btn-floating btn-large red">
-          <i className="material-icons">add</i>
-        </Link>
-      </div>
     </div>
   );
 };
