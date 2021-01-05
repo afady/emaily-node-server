@@ -12,7 +12,7 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "connected-react-router": "^4.3.0",
     "history": "^4.7.2",
     "materialize-css": "^0.100.2",
